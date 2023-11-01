@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - My Website{% endblock %}
+
+{% block content %}
+    <section class="product-details">
+        <div class="product-image">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <p class="product-price">${{ product.price }}</p>
+            <p class="product-description">{{ product.description }}</p>
+           <!-- <button class="add-to-cart-button">Add to Cart</button> -->
+        </div>
+    </section>
+
+    <!-- Like and Comment Section -->
+    <section class="like-and-comment">
+        <button id="like-button">Like</button>
+        <div class="comments">
+            <h2>Comments</h2>
+            {% for comment in product.comments.all %}
+                <div class="comment">
+                    <p><strong>{{ comment.user }}</strong></p>
+                    <p>{{ comment.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+web gunicorn imanishope48.wsgi:application --log-file -
